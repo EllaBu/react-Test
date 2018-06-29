@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Layout userId = '123456' />
+        <Layout userid = {123456} />
         <Footer />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

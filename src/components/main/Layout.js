@@ -18,11 +18,11 @@ class Layout extends Component {
   render () {
     // 修改state  this.setState
     let {username} = this.state
-    let {userId} = this.props
+    let {userid} = this.props
     return (
       <div>
         <p>{username}</p>
-        <p>{userId}</p>
+        <p>{userid}</p>
       </div>
     )
   }
