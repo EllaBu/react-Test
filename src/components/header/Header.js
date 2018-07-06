@@ -8,10 +8,31 @@ class Header extends Component {
   componentDidMount () {
     console.log('header-加载完了')
   }
+
+  constructor() {
+    super();
+    this.state = {
+      miniHeader: false
+    }
+  }
+
+  switchHeaader() {
+    this.setState({
+      miniHeader: !this.state.miniHeader
+    })
+  }
+
   render() {
+    // 行内样式  不建议使用
+    const styleHeader = {
+      header: {
+        backgroundColor: '#ddd',
+        'padding': (this.state.miniHeader) ? '3px' : '15px'
+      }
+    };
     return (
       <div>
-        <header className="header">Hello</header>
+        <header className="header" style={styleHeader.header} onClick={this.switchHeaader.bind(this)}>Hello</header>
       </div>
     );
   }
