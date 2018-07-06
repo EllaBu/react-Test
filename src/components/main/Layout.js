@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class Layout extends Component {
   constructor () {
     super(); // 调用基类的所有的初始化方法
     this.state = {
-      username: 'Hai'
+      username: 'HaiMing',
+      age: 28
     }
+  }
+  changeUserInfo () {
+    this.setState({
+      age: 29
+    })
   }
   // 生命周期
   // 页面将要加载的时候
@@ -17,15 +24,25 @@ class Layout extends Component {
   }
   render () {
     // 修改state  this.setState
-    let {username} = this.state
-    let {userid} = this.props
+    let {username, age} = this.state
+    let {userId, username2} = this.props
     return (
       <div>
         <p>{username}</p>
-        <p>{userid}</p>
+        <p>{username2}</p>
+        <p>{age}</p>
+        <p>{userId}</p>
+        <button onClick={this.changeUserInfo.bind(this)}>提交</button>
       </div>
     )
   }
 }
 
 export default Layout;
+
+Layout.propTypes = {
+  userId: PropTypes.number.isRequired
+}
+Layout.defaultProps = {
+  username2: '默认值'
+}
