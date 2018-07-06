@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import ReactMixin from 'react-mixin'
+
+import MixinLog from '../common/mixin'
+
 import LayChild from './LayChild'
 
 class Layout extends Component {
@@ -22,6 +26,7 @@ class Layout extends Component {
     // 第二种方式  推荐使用
     console.log(this.refs.submitBtn)
     this.refs.submitBtn.style.color='red'
+    MixinLog.log();
   }
   // 生命周期
   // 页面将要加载的时候
@@ -56,3 +61,4 @@ Layout.propTypes = {
 Layout.defaultProps = {
   username2: '默认值'
 }
+ReactMixin(Layout.prototype, MixinLog)
