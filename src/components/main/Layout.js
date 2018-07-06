@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import LayChild from './LayChild'
 
@@ -14,6 +15,13 @@ class Layout extends Component {
     this.setState({
       age: 999
     })
+    // 第一种方式获取原生DON
+    /*var myBtn = document.getElementById('submitBtn');
+    console.log(myBtn)
+    ReactDOM.findDOMNode(myBtn).style.color='red'*/
+    // 第二种方式  推荐使用
+    console.log(this.refs.submitBtn)
+    this.refs.submitBtn.style.color='red'
   }
   // 生命周期
   // 页面将要加载的时候
@@ -33,7 +41,7 @@ class Layout extends Component {
         <p>{username2}</p>
         <p>{age}</p>
         <p>{userId}</p>
-        <button onClick={this.changeUserInfo.bind(this)}>提交</button>
+        <button id="submitBtn" ref="submitBtn" onClick={this.changeUserInfo.bind(this)}>提交</button>
         <LayChild age={age}/>
       </div>
     )
