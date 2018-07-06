@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import LayChild from './LayChild'
 
 class Layout extends Component {
   constructor () {
@@ -11,7 +12,7 @@ class Layout extends Component {
   }
   changeUserInfo () {
     this.setState({
-      age: 29
+      age: 999
     })
   }
   // 生命周期
@@ -33,6 +34,7 @@ class Layout extends Component {
         <p>{age}</p>
         <p>{userId}</p>
         <button onClick={this.changeUserInfo.bind(this)}>提交</button>
+        <LayChild age={age}/>
       </div>
     )
   }
